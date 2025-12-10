@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Upload, FileText, Database, TrendingUp } from "lucide-react";
-import { APP_TITLE, getLoginUrl } from "@/const";
+import { Database, FileText, TrendingUp, Upload } from "lucide-react";
+import { APP_TITLE } from "@/const";
 import { useLocation } from "wouter";
 
 export default function Home() {
@@ -20,45 +19,40 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-8">
             Transform your project dashboards and data into professional financial portfolios automatically
           </p>
-          
+
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             <Card>
               <CardHeader>
                 <FileText className="w-12 h-12 text-blue-600 mb-2" />
                 <CardTitle>Upload Dashboard</CardTitle>
-              </CardHeader>
-              <CardContent>
                 <CardDescription>
                   Upload your project dashboard PDF to extract baseline metrics
                 </CardDescription>
-              </CardContent>
+              </CardHeader>
             </Card>
-            
+
             <Card>
               <CardHeader>
                 <Database className="w-12 h-12 text-green-600 mb-2" />
                 <CardTitle>Add Data</CardTitle>
-              </CardHeader>
-              <CardContent>
                 <CardDescription>
                   Upload database files and enter forecast data for complete analysis
                 </CardDescription>
-              </CardContent>
+              </CardHeader>
             </Card>
-            
+
             <Card>
               <CardHeader>
                 <TrendingUp className="w-12 h-12 text-purple-600 mb-2" />
                 <CardTitle>Generate Portfolio</CardTitle>
-              </CardHeader>
-              <CardContent>
                 <CardDescription>
                   Get professional 12-slide presentations with charts and insights
                 </CardDescription>
-              </CardContent>
+              </CardHeader>
             </Card>
           </div>
-          
+
+          {/* FIXED BUTTON: Uses router navigation instead of a broken link */}
           <Button size="lg" onClick={() => setLocation("/create")}>
             Get Started
           </Button>
@@ -78,7 +72,7 @@ export default function Home() {
             Create a new portfolio or manage your existing projects
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setLocation('/create')}>
             <CardHeader>
@@ -89,10 +83,10 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button className="w-full">Start New Project</Button>
+              <Button variant="outline" className="w-full">Start New Project</Button>
             </CardContent>
           </Card>
-          
+
           <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setLocation('/projects')}>
             <CardHeader>
               <FileText className="w-12 h-12 text-green-600 mb-2" />
