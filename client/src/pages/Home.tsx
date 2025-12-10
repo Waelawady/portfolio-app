@@ -59,8 +59,8 @@ export default function Home() {
             </Card>
           </div>
           
-          <Button size="lg" asChild>
-            <a href={getLoginUrl()}>Get Started</a>
+          <Button size="lg" onClick={() => setLocation("/create")}>
+            Get Started
           </Button>
         </div>
       </div>
