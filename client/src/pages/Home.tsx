@@ -1,17 +1,8 @@
-import { useLocation } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { APP_TITLE } from "@/const";
 
 export default function Home() {
-  const [, setLocation] = useLocation();
-
-  // Simple navigation function that works 100% of the time
-  const handleStart = () => {
-    console.log("Navigating to create..."); // This logs to console if it works
-    setLocation("/create");
-  };
-
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-blue-50">
       <div className="max-w-4xl mx-auto px-4 text-center">
@@ -28,10 +19,12 @@ export default function Home() {
           <Card><CardHeader><CardTitle>Generate</CardTitle><CardDescription>Get Slides</CardDescription></CardHeader></Card>
         </div>
 
-        {/* This button has NO complex logic. It just goes to /create */}
-        <Button size="lg" onClick={handleStart}>
-          Get Started
-        </Button>
+        {/* FIX: Using a standard HTML link to force navigation */}
+        <a href="/create">
+          <Button size="lg">
+            Get Started
+          </Button>
+        </a>
       </div>
     </div>
   );
